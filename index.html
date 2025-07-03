@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive React Native Learning Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Calm Harmony (Warm neutrals: bg-stone-50, text-stone-800; Accent: Teal/Slate Blue) -->
+    <!-- Application Structure Plan: A single-page vertical scrolling layout with a sticky sidebar navigation. This structure respects the sequential nature of the learning roadmap. Each phase is a distinct section card. Key concepts within each phase are presented in an accordion-style (using <details>/<summary>) to manage information density and allow users to focus. An IntersectionObserver will highlight the active phase in the sidebar nav for better user orientation. -->
+    <!-- Visualization & Content Choices: Report Info: Hierarchical text. Goal: Inform/Organize. Viz/Method: The main visualization is the structure itself. Phases are sections, concepts are interactive accordions (<details> tag). Icons (Unicode) are used for visual cues. Phase 4 uses a simple HTML/CSS flexbox diagram to show data flow. No charts needed. Justification: Accordions are ideal for self-paced learning, preventing information overload. The data flow diagram clarifies a key process. CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .arrow-down {
+            transform: rotate(180deg);
+        }
+        .nav-link.active {
+            background-color: #0f766e; /* teal-700 */
+            color: white;
+            font-weight: 600;
+        }
+        .nav-link.active .nav-icon {
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="py-12 text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-teal-800 sm:text-5xl">React Native Learning Roadmap</h1>
+            <p class="mt-4 text-xl text-stone-600">Your "Zero to Hero" guide for mastering React Native development.</p>
+        </header>
+
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            <aside class="lg:col-span-3 mb-8 lg:mb-0">
+                <nav id="sidebar-nav" class="sticky top-8 space-y-2">
+                    <h3 class="px-3 text-sm font-semibold text-stone-500 uppercase tracking-wider">Phases</h3>
+                    <a href="#phase-1" class="nav-link group flex items-center px-3 py-2 text-md font-medium rounded-md transition-colors duration-200 hover:bg-teal-50 hover:text-teal-900">
+                        <span class="nav-icon text-teal-600 mr-3">1</span>
+                        <span class="truncate">Core JavaScript & ES6</span>
+                    </a>
+                    <a href="#phase-2" class="nav-link group flex items-center px-3 py-2 text-md font-medium rounded-md transition-colors duration-200 hover:bg-teal-50 hover:text-teal-900">
+                        <span class="nav-icon text-teal-600 mr-3">2</span>
+                        <span class="truncate">React Core Concepts</span>
+                    </a>
+                    <a href="#phase-3" class="nav-link group flex items-center px-3 py-2 text-md font-medium rounded-md transition-colors duration-200 hover:bg-teal-50 hover:text-teal-900">
+                        <span class="nav-icon text-teal-600 mr-3">3</span>
+                        <span class="truncate">RN Components & Layout</span>
+                    </a>
+                    <a href="#phase-4" class="nav-link group flex items-center px-3 py-2 text-md font-medium rounded-md transition-colors duration-200 hover:bg-teal-50 hover:text-teal-900">
+                        <span class="nav-icon text-teal-600 mr-3">4</span>
+                        <span class="truncate">Data Fetching & JSON</span>
+                    </a>
+                    <a href="#phase-5" class="nav-link group flex items-center px-3 py-2 text-md font-medium rounded-md transition-colors duration-200 hover:bg-teal-50 hover:text-teal-900">
+                        <span class="nav-icon text-teal-600 mr-3">5</span>
+                        <span class="truncate">Beyond the Basics</span>
+                    </a>
+                     <a href="#tips" class="nav-link group flex items-center px-3 py-2 text-md font-medium rounded-md transition-colors duration-200 hover:bg-teal-50 hover:text-teal-900">
+                        <span class="nav-icon text-teal-600 mr-3">💡</span>
+                        <span class="truncate">General Learning Tips</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="lg:col-span-9">
+                
+                <!-- Phase 1 -->
+                <section id="phase-1" class="scroll-mt-24 bg-white rounded-xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden mb-8">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-teal-700">Phase 1: Core JavaScript & ES6</h2>
+                        <p class="mt-2 text-stone-600">This phase is about solidifying the modern JavaScript features that are essential for writing clean and effective React code. These concepts form the bedrock of everything you'll build.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 border-t border-gray-200 space-y-4">
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Variables, Functions & Scope</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                                <p><strong>`let` vs `const`:</strong> Understand mutability and why `const` is preferred for preventing accidental reassignment.</p>
+                                <p class="mt-1"><strong>Arrow Functions (`=>`):</strong> Learn the concise syntax and how it handles the `this` keyword differently from traditional functions.</p>
+                            </div>
+                        </details>
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Async Programming</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                               <p><strong>Promises & Async/Await:</strong> Master asynchronous operations for handling tasks like data fetching without blocking the main thread. This is critical for network requests.</p>
+                            </div>
+                        </details>
+                         <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Data Structures & Methods</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                               <p><strong>Destructuring & Template Literals:</strong> Use these for cleaner, more readable code when working with objects, arrays, and strings.</p>
+                               <p class="mt-1"><strong>Array Methods (`map`, `filter`):</strong> `map()` is essential for transforming data into lists of components, and `filter()` is key for managing data based on conditions.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Phase 2 -->
+                <section id="phase-2" class="scroll-mt-24 bg-white rounded-xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden mb-8">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-teal-700">Phase 2: React Core Concepts</h2>
+                        <p class="mt-2 text-stone-600">Here you will learn the fundamental building blocks and paradigms of React itself. Mastering this phase is crucial for thinking in React and building effective components.</p>
+                    </div>
+                     <div class="bg-slate-50 p-6 border-t border-gray-200 space-y-4">
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">JSX and Components</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                                <p><strong>What is React?:</strong> Understand component-based architecture and declarative UI.</p>
+                                <p class="mt-1"><strong>JSX:</strong> Learn to write HTML-like syntax in JavaScript to describe your UI.</p>
+                                <p class="mt-1"><strong>Components & Props:</strong> Learn to build reusable UI pieces (Components) and pass data to them (Props).</p>
+                            </div>
+                        </details>
+                         <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">State and Lifecycle</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                                <p><strong>State (`useState` Hook):</strong> Manage data that changes over time within a component. Remember the golden rule: never mutate state directly!</p>
+                                <p class="mt-1"><strong>Lifecycle (`useEffect` Hook):
+                                </strong> Perform "side effects" like data fetching or subscriptions. The dependency array (`[]`) is key to controlling when effects run.</p>
+                            </div>
+                        </details>
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Rendering UI</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                                <p><strong>Conditional Rendering:</strong> Show different UI based on state or props.</p>
+                                <p class="mt-1"><strong>List Rendering (`map` & `key`):</strong> Render dynamic lists from data arrays. The `key` prop is crucial for performance and identity.</p>
+                            </div>
+                        </details>
+                         <div class="mt-6 p-4 bg-teal-50 border border-teal-200 rounded-lg">
+                             <h4 class="font-bold text-teal-800">Practice Zone</h4>
+                             <p class="text-teal-700 mt-1">Build a simple counter app (`useState`) and a basic to-do list (`useState`, `map`, `key`) to solidify these concepts.</p>
+                         </div>
+                    </div>
+                </section>
+
+                 <!-- Phase 3 -->
+                <section id="phase-3" class="scroll-mt-24 bg-white rounded-xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden mb-8">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-teal-700">Phase 3: RN Components & Layout</h2>
+                        <p class="mt-2 text-stone-600">Become proficient with the essential components and layout systems unique to React Native. This is where you translate web concepts to the native mobile world.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 border-t border-gray-200 space-y-4">
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Core Components Deep Dive</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                                <ul class="space-y-2">
+                                    <li><span class="font-mono bg-slate-200 px-1 rounded-sm">&lt;View&gt;</span>: The fundamental building block for layout.</li>
+                                    <li><span class="font-mono bg-slate-200 px-1 rounded-sm">&lt;Text&gt;</span>: For displaying all text content.</li>
+                                    <li><span class="font-mono bg-slate-200 px-1 rounded-sm">&lt;Image&gt;</span>: For local and network images.</li>
+                                    <li><span class="font-mono bg-slate-200 px-1 rounded-sm">&lt;Pressable&gt;</span>: The modern way to handle all user touch interactions.</li>
+                                    <li><span class="font-mono bg-slate-200 px-1 rounded-sm">&lt;ScrollView&gt; / &lt;FlatList&gt;</span>: For scrollable content. Use `FlatList` for long, performant lists.</li>
+                                    <li><span class="font-mono bg-slate-200 px-1 rounded-sm">&lt;TextInput&gt;</span>: For user input fields.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Layout with Flexbox</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                               <p>Flexbox is the primary layout system in React Native. Master properties like `flex`, `flexDirection`, `justifyContent`, and `alignItems` to create responsive and adaptive layouts for any screen size.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Phase 4 -->
+                <section id="phase-4" class="scroll-mt-24 bg-white rounded-xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden mb-8">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-teal-700">Phase 4: Data Fetching & JSON Parsing</h2>
+                        <p class="mt-2 text-stone-600">This is your primary goal. With the foundations in place, you can now learn to retrieve, parse, and display data from external web services to create dynamic applications.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 border-t border-gray-200 space-y-4">
+                        <div class="p-4 rounded-lg bg-white border">
+                            <h4 class="font-semibold text-center mb-4">Typical Data Fetching Flow</h4>
+                            <div class="flex flex-wrap items-center justify-center gap-2 text-sm">
+                                <div class="bg-teal-100 text-teal-800 p-2 rounded-md font-medium">useEffect</div>
+                                <div class="text-gray-400 font-bold">&rarr;</div>
+                                <div class="bg-teal-100 text-teal-800 p-2 rounded-md font-medium">fetch(api)</div>
+                                <div class="text-gray-400 font-bold">&rarr;</div>
+                                <div class="bg-teal-100 text-teal-800 p-2 rounded-md font-medium">response.json()</div>
+                                <div class="text-gray-400 font-bold">&rarr;</div>
+                                <div class="bg-teal-100 text-teal-800 p-2 rounded-md font-medium">useState</div>
+                            </div>
+                        </div>
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">The `fetch` API</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                               <p>Revisit `fetch` to understand how it handles HTTP requests. Pay close attention to the `Response` object and how to check `response.ok` for success before attempting to parse the body with `response.json()`.</p>
+                            </div>
+                        </details>
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Integration and Error Handling</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                               <p>Use `useEffect` to trigger the fetch. Implement robust `try...catch` blocks to handle network errors gracefully. Manage loading and error states with `useState` to provide clear feedback to the user.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Phase 5 -->
+                <section id="phase-5" class="scroll-mt-24 bg-white rounded-xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden mb-8">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-teal-700">Phase 5: Beyond the Basics</h2>
+                        <p class="mt-2 text-stone-600">Once you're comfortable with the core concepts, explore these advanced topics to build more complex, multi-screen, and robust applications.</p>
+                    </div>
+                     <div class="bg-slate-50 p-6 border-t border-gray-200 space-y-4">
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-3 rounded-lg hover:bg-slate-100 transition">
+                                <span class="font-semibold">Key Advanced Topics</span>
+                                <span class="arrow-down transition-transform duration-300">▼</span>
+                            </summary>
+                            <div class="mt-2 p-3 text-stone-700 border-l-2 border-teal-500 ml-2">
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li><strong>React Navigation:</strong> Essential for building multi-screen apps.</li>
+                                    <li><strong>Advanced State Management:</strong> Explore Context API, Redux, or Zustand for managing complex, app-wide state.</li>
+                                    <li><strong>Component Libraries:</strong> Use libraries like NativeBase or React Native Paper to speed up development with pre-built components.</li>
+                                    <li><strong>Local Storage:</strong> Persist data on the device using `AsyncStorage`.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+                
+                <!-- Tips -->
+                 <section id="tips" class="scroll-mt-24 bg-white rounded-xl shadow-sm ring-1 ring-gray-900/5 overflow-hidden mb-8">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-teal-700">💡 General Learning Tips</h2>
+                        <p class="mt-2 text-stone-600">Keep these strategies in mind throughout your learning journey to stay effective and motivated.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 border-t border-gray-200 grid md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-4">🏗️</span>
+                            <div>
+                                <h4 class="font-semibold">Build to Learn</h4>
+                                <p class="text-sm text-stone-600">Active learning is best. Don't just read; write code for every new concept.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                            <span class="text-2xl mr-4">🐞</span>
+                            <div>
+                                <h4 class="font-semibold">Use `console.log()`</h4>
+                                <p class="text-sm text-stone-600">It's your most powerful debugging tool. Inspect variables, props, state, and API responses relentlessly.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                            <span class="text-2xl mr-4">📖</span>
+                            <div>
+                                <h4 class="font-semibold">Read the Docs</h4>
+                                <p class="text-sm text-stone-600">The official React and React Native documentation is high-quality, up-to-date, and your best source of truth.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                            <span class="text-2xl mr-4">⁉️</span>
+                            <div>
+                                <h4 class="font-semibold">Understand Errors</h4>
+                                <p class="text-sm text-stone-600">Don't just copy-paste errors into Google. Read them carefully; they usually tell you exactly what's wrong.</p>
+                            </div>
+                        </div
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="text-center py-12 text-stone-500 text-sm">
+            <p>An interactive guide based on the "Zero to Hero" learning roadmap.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('#sidebar-nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.3
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // The default smooth scroll behavior is handled by html.scroll-smooth
+                    // This is just to ensure the class gets updated instantly on click if needed
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
